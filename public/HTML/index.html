@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js">
+	</script>
+	<script type="text/javascript" src="/script.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+</head>
+<body ng-controller = "lingoTroller">
+	<form ng-submit="submitter(ourTrans)" id="application-form">
+        <div class="form-group">
+          <input ng-model="ourTrans.language" type="text" placeholder="your language" class="form-control"/>
+        </div>
+        <div class="form-group">
+          <input ng-model="ourTrans.languageTarget" type="text" placeholder="target language" class="form-control">
+        </div>
+        <div class="form-group">
+          <input ng-model="ourTrans.word" placeholder="your word" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-default">
+        </div>
+     </form>
+     <div class="container">
+     	<div class="row">
+     		<div class="col-xs-6">
+     			<h1>Your Translation, Honky</h1>
+    			<p>{{translation.originalText}} translates to {{translation.translatedText}}</p>
+     		</div>
+     	</div>
+     </div>
+</body>
+</html>
