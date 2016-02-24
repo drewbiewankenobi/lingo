@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js">
+	</script>
+	<script type="text/javascript" src="/script.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../stylesheets/main.css">
+</head>
+<body class = "quizBacker" ng-controller = "lingoTroller">
+	<nav>
+        <a href="/quiz.html">Quiz</a>
+        <a href="/progress.html">Progress</a>
+    </nav>
+	<div class="getCenter">
+	<img src="http://cdn1.techworld.com/cmsdata/slideshow/3631725/quiz_istock_nirodesign_thumb800.jpg">
+	</div>
+	<form ng-submit="quizSub(quiz)">
+		<h3>What language would you like to study?</h3>
+		<br>
+		<input ng-model="quiz.language" type="text" placeholder="your language" class="form-control">
+        <input type="submit" class="btn btn-default">
+        <br>
+        <br>
+	<div ng-show = "reveal">
+		<form ng-submit="quizSub(quiz)">
+			<p>1. Translate the word {{word}}</p>
+			<input>
+			<p>2. Translate the word {{word}}:</p>
+			<input>
+			<p>3. Translate the word {{word}}:</p>
+			<input>
+			<p>4. Translate the word {{word}}:</p>
+			<input>
+			<p>5. Translate the word {{word}}:</p>
+			<input>
+			<p>6. Translate the word {{word}}:</p>
+			<input>
+			<p>7. Translate the word {{word}}:</p>
+			<input>
+			<p>8. Translate the word {{word}}:</p>
+			<input>
+			<p>9. Translate the word {{word}}:</p>
+			<input>
+			<p>10. Translate the word {{word}}:</p>
+			<input>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+.bolt {
+	height:auto;
+	width:400px;
+}
+
+nav {
+	height: 50px;
+	width: 100%;
+	background-color: #ffefd5; 
+	margin-bottom: 50px;
+}
+
+.quizBacker {
+	background-color: #FFF8DC;
+}
+
+.getCenter {
+	display: block;
+	margin: auto;
+	overflow: hidden;
+	height: 500px;
+	width: 900px;
+}

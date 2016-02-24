@@ -3,7 +3,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
-var googleTranslate = require('google-translate')('//');
+var googleTranslate = require('google-translate')('AIzaSyBK7uxnSgFdrVjaqyUFxJp1UI4LaNPf338');
 // Create Express App Object \\
 var app = express();
 
@@ -39,10 +39,10 @@ app.post('/translate', function(req, res){
 	console.log("req.body: " + req.body)
 	console.log("req.body.languageTarget: " + req.body.languageTarget)
 	var x = new Lingo(req.body)
-		x.save(function(err){
+		// x.save(function(err){
 
-		if (err) {console.log("NO!")}
-	})
+		// if (err) {console.log("NO!")}
+		// })
 		console.log("Var x is: " + x)
 	googleTranslate.translate(x.word, x.language, x.languageTarget, function(err, translation){
 		res.send(translation)

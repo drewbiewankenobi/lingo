@@ -10,9 +10,13 @@
 	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
 </head>
 <body ng-controller = "lingoTroller">
+    <nav>
+        <a href="/quiz.html">Quiz</a>
+        <a href="/progress.html">Progress</a>
+    </nav>
 	<form ng-submit="submitter(ourTrans)" id="application-form">
         <div class="form-group">
-          <input ng-model="ourTrans.language" type="text" placeholder="your language" class="form-control"/>
+          <input ng-model="ourTrans.language" type="text" placeholder="your language" class="form-control">
         </div>
         <div class="form-group">
           <input ng-model="ourTrans.languageTarget" type="text" placeholder="target language" class="form-control">
@@ -25,10 +29,16 @@
         </div>
      </form>
      <div class="container">
-     	<div class="row">
-     		<div class="col-xs-6">
-     			<h1>Your Translation, Honky</h1>
-    			<p>{{translation.originalText}} translates to {{translation.translatedText}}</p>
+     	  <div class="row">
+     			<h1>Your Translation, Honky*</h1>
+                <h4>*honky is Romanian for "friend"</h4>
+            <div class="col-xs-4">
+    			<p><strong>{{translation.originalText}}</strong></p></div>
+            <div class="col-xs-4">
+                <img class= "bolt" src="http://tipshomedesign.xyz/wp-content/uploads/2015/12/real-lightning-bolts-png.png">
+            </div>
+            <div class="col-xs-4">
+                <p><strong>{{translation.translatedText}}</strong></p>
      		</div>
      	</div>
      </div>
