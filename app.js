@@ -23,7 +23,7 @@ var Lingo = mongoose.model( "Lingo", {
 
 // Routes \\
 app.get('/', function(req, res){
-  res.sendFile('html/index.html', {root : './public'});
+  res.sendFile('HTML/index.html', {root : './public'});
 });
 // app.get('api/translate', function(req,res){
 // 	if (err) {
@@ -33,6 +33,10 @@ app.get('/', function(req, res){
 // 			res.send(Lingo)
 // 		}
 // })
+
+app.get('/quiz.html', function(req, res){
+	res.sendFile('HTML/quiz.html', {root : './public'})
+});
 
 
 app.post('/translate', function(req, res){

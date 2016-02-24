@@ -11,36 +11,54 @@
 </head>
 <body ng-controller = "lingoTroller">
     <nav>
-        <a href="/quiz.html">Quiz</a>
-        <a href="/progress.html">Progress</a>
+        <div class = 'nav-ele'>
+            <a href="/">Home</a>
+        </div>
+        <div class = 'nav-ele'>
+            <a href="/quiz.html">Quiz</a>
+        </div>
+        <div class = 'nav-ele'>
+            <a href="/progress.html">Progress</a>
+        </div>
     </nav>
-	<form ng-submit="submitter(ourTrans)" id="application-form">
-        <div class="form-group">
-          <input ng-model="ourTrans.language" type="text" placeholder="your language" class="form-control">
-        </div>
-        <div class="form-group">
-          <input ng-model="ourTrans.languageTarget" type="text" placeholder="target language" class="form-control">
-        </div>
-        <div class="form-group">
-          <input ng-model="ourTrans.word" placeholder="your word" class="form-control">
-        </div>
-        <div class="form-group">
-          <input type="submit" class="btn btn-default">
-        </div>
-     </form>
+
      <div class="container">
-     	  <div class="row">
-     			<h1>Your Translation, Honky*</h1>
+        <div class = 'row'>
+            <form class = 'col-xs-6' ng-submit="submitter(ourTrans)" id="application-form">
+                <div class="form-group">
+                  <input ng-model="ourTrans.language" type="text" placeholder="your language" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input ng-model="ourTrans.languageTarget" type="text" placeholder="target language" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input ng-model="ourTrans.word" placeholder="your word" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="submit" class="btn btn-default">
+                </div>
+             </form>
+        </div>
+                <h1>Your Translation, Honky*</h1>
                 <h4>*honky is Romanian for "friend"</h4>
-            <div class="col-xs-4">
-    			<p><strong>{{translation.originalText}}</strong></p></div>
-            <div class="col-xs-4">
-                <img class= "bolt" src="http://tipshomedesign.xyz/wp-content/uploads/2015/12/real-lightning-bolts-png.png">
+     
+        <div class = 'row'>
+            <div class="col-xs-6 from-txt">
+                <h3>Original Text</h3>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-6 to-txt">
+                <h3>From Text</h3>
+            </div>
+        </div>
+
+     	<div class="row">
+            <div class="col-xs-6 from-txt">
+    			<p>{{translation.originalText}}</p>
+            </div>
+            <div class="col-xs-6 to-txt">
                 <p><strong>{{translation.translatedText}}</strong></p>
      		</div>
-     	</div>
+ 	</div>
      </div>
 </body>
 </html>

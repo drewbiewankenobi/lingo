@@ -11,11 +11,18 @@
 </head>
 <body class = "quizBacker" ng-controller = "lingoTroller">
 	<nav>
-        <a href="/quiz.html">Quiz</a>
-        <a href="/progress.html">Progress</a>
+		<div class = 'nav-ele'>
+			<a href="/">Home</a>
+		</div>
+		<div class = 'nav-ele'>
+        	<a href="/quiz.html">Quiz</a>
+        </div>
+        <div class = 'nav-ele'>
+        	<a href="/progress.html">Progress</a>
+        </div>
     </nav>
-	<div class="getCenter">
-	<img src="http://cdn1.techworld.com/cmsdata/slideshow/3631725/quiz_istock_nirodesign_thumb800.jpg">
+	<div class="quiz-image">
+		<img src="http://cdn1.techworld.com/cmsdata/slideshow/3631725/quiz_istock_nirodesign_thumb800.jpg">
 	</div>
 	<form ng-submit="quizSub(quiz)">
 		<h3>What language would you like to study?</h3>

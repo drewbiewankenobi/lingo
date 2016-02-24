@@ -1,23 +1,44 @@
-.bolt {
-	height:auto;
-	width:400px;
-}
-
 nav {
 	height: 50px;
 	width: 100%;
-	background-color: #ffefd5; 
+	background-color: #16a085; 
+	color: white;
 	margin-bottom: 50px;
 }
+
+.nav-ele {
+	padding: 10px;
+	display: inline-block;
+}
+
+nav a {
+	color: white;
+	font-size: 1.5em;
+}
+
+.from-txt {
+	height: 300px;
+	background-color: rgba(44, 62, 80, .5);
+	padding: 10px;
+	color: white;
+}
+
+.to-txt {
+	height: 300px;
+	background-color: rgba(39, 174, 96, .25);
+	padding: 10px;
+	color: black;
+}
+
 
 .quizBacker {
 	background-color: #FFF8DC;
 }
 
-.getCenter {
+.quiz-image {
 	display: block;
 	margin: auto;
 	overflow: hidden;
-	height: 500px;
-	width: 900px;
+	height: 300px;
+	width: 100%;
 }
