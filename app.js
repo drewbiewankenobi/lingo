@@ -3,7 +3,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
-var googleTranslate = require('google-translate')('AIzaSyBK7uxnSgFdrVjaqyUFxJp1UI4LaNPf338');
+var googleTranslate = require('google-translate')('//');
 // Create Express App Object \\
 var app = express();
 
