@@ -38,6 +38,9 @@ app.get('/quiz.html', function(req, res){
 	res.sendFile('HTML/quiz.html', {root : './public'})
 });
 
+app.post('/quizrequest', function(req, res){
+	res.send(req.body)
+});
 
 app.post('/translate', function(req, res){
 	console.log("req.body: " + req.body)
