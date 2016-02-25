@@ -21,6 +21,12 @@ var Lingo = mongoose.model( "Lingo", {
 	word 			: {type: String},
 })
 
+var ourQuizController = require('./controllers/controller.js')
+
+var wordsSchema = require('./models/model.js')
+var ourWords = ourWords
+
+
 // Routes \\
 app.get('/', function(req, res){
   res.sendFile('HTML/index.html', {root : './public'});
@@ -38,9 +44,9 @@ app.get('/quiz.html', function(req, res){
 	res.sendFile('HTML/quiz.html', {root : './public'})
 });
 
-app.post('/quizrequest', function(req, res){
-	res.send(req.body)
-});
+app.post('/quizrequest', ourQuizController.ourQuizFunction)
+	
+
 
 app.post('/translate', function(req, res){
 	console.log("req.body: " + req.body)

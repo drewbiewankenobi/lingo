@@ -9,14 +9,16 @@ angular.module('myApp')
 
 			s.words = words.words
 
-			s.selection = function(){
-				s.reveal = true
-				var num = Math.floor(Math.random()* s.words.length)
-				console.log(num)
-				s.question1 = s.words[num]
-				return s.words[num]
+			// s.selection = function(){
 
-			}
+				
+			// 	s.reveal = true
+			// 	var num = Math.floor(Math.random()* s.words.length)
+			// 	console.log(num)
+			// 	s.question1 = s.words[num]
+			// 	return s.words[num]
+
+			// }
 
 			console.log(s.words)
 
