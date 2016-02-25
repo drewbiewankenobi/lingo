@@ -6,7 +6,7 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js">
 	</script>
 	<script type="text/javascript" src="/script.js"></script>
-	<script type = 'text/javascript' src = "/factory.js"></script>
+	<!-- <script type = 'text/javascript' src = "/factory.js"></script> -->
 
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../stylesheets/main.css">
@@ -35,10 +35,18 @@
         <br>
         <br>
 
-	<div ng-show = "reveal">
-		<form ng-submit="quizSub(quiz)">
-			<p>1. Translate the word {{question1}}</p>
-			<input type = 'text'>
+	<div ng-show = "reveal[0]">
+		<form ng-submit="quizAnswer(userAnswer)">
+			<p>1. Translate the word {{question}}</p>
+			<input ng-model = "userAnswer" type = 'text'>
+			<input type = 'submit'>
+		</form>
+	</div>
+
+	<div ng-show = "reveal[1]">
+		<form ng-submit="quizAnswer(userAnswer)">
+			<p>1. Translate the word {{question}}</p>
+			<input ng-model = "userAnswer" type = 'text'>
 			<input type = 'submit'>
 		</form>
 	</div>

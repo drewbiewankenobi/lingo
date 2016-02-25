@@ -1,3 +1,5 @@
+var googleTranslate = require('google-translate')('AIzaSyBK7uxnSgFdrVjaqyUFxJp1UI4LaNPf338');
+var wordsSchema = require('../models/model.js');
 
 var languageCodes = {
 
@@ -94,8 +96,13 @@ var languageCodes = {
 
 var ourQuizFunction = function(req, res){
 	var langSel = req.body.language
-	
-	res.send(ourWords)
+	console.log("QuizFunction is firing --> " + req.body.language)
+	var y = wordsSchema.ourWords.words.join(', ')
+	console.log("Variable 'y' is --> " + y)
+	var transArray = []
+	googleTranslate.translate(y, "en", req.body.language, function(err, translation){
+		res.send(translation)
+	})
 	
 	/* Validator */
 	// for (codes in languageCodes) {
@@ -110,6 +117,9 @@ var ourQuizFunction = function(req, res){
 
 }
 
+var ourQuizAnswer = function(req, res){
+
+}
 
 
 module.exports = {

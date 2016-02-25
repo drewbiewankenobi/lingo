@@ -24,7 +24,7 @@ var Lingo = mongoose.model( "Lingo", {
 var ourQuizController = require('./controllers/controller.js')
 
 var wordsSchema = require('./models/model.js')
-var ourWords = ourWords
+
 
 
 // Routes \\
@@ -45,7 +45,8 @@ app.get('/quiz.html', function(req, res){
 });
 
 app.post('/quizrequest', ourQuizController.ourQuizFunction)
-	
+
+// app.post('/quizAnswer', ourQuizController.ourQuizFunction)
 
 
 app.post('/translate', function(req, res){

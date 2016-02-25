@@ -1,13 +1,13 @@
 angular.module('myApp',[]);
 
 angular.module('myApp')
-	.controller('lingoTroller', ['$scope', 'words', '$http', function($scope, words, $http){
+	.controller('lingoTroller', ['$scope', '$http', function($scope, $http){
 			var s = $scope
 			var h = $http
 
-			s.reveal = false
+			s.reveal = [false, false, false, false, false]
 
-			s.words = words.words
+			// s.words = words.words
 
 			// s.selection = function(){
 
@@ -20,7 +20,7 @@ angular.module('myApp')
 
 			// }
 
-			console.log(s.words)
+			// console.log(s.words)
 
 			s.submitter = function(ourTrans){
 					// window.location.href="/"
@@ -33,15 +33,39 @@ angular.module('myApp')
 				})
 			}
 
+			//submits a language and gets data for questions/answers
+
 			s.quizSub = function(quiz){
 				
 				h.post('/quizrequest', quiz)
 					.then(function(dataFromServer){
 						console.log(dataFromServer.data)
-						s.reveal = true;
-					})
+						
+						//declarations
 
-			}
+						var questArray = dataFromServer.data.originalText.split(", ")
+						var answerArray = dataFromServer.data.translatedText.split(", ")
+						s.reveal[0] = true;
+						var counter = 0
+						s.question = questArray[counter]
+						s.answer = answerArray[counter]
+
+						//find out if the answer is correct
+							s.quizAnswer = function(answer){
+							console.log("User answer = " + answer)
+								if (answer === s.answer){
+									console.log("CORRECT SUH!")
+									counter += 1
+									s.reveal[counter] = true
+
+								} else {
+									console.log("NO! DID YOU EVEN STUDY!?")
+								}
+							}
+					})
+					}
+
+			
 
 			
 
