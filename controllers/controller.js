@@ -99,7 +99,6 @@ var ourQuizFunction = function(req, res){
 	console.log("QuizFunction is firing --> " + req.body.language)
 	var y = wordsSchema.ourWords.words.join(', ')
 	console.log("Variable 'y' is --> " + y)
-	var transArray = []
 	googleTranslate.translate(y, "en", req.body.language, function(err, translation){
 		res.send(translation)
 	})

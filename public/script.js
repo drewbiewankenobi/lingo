@@ -49,12 +49,9 @@ angular.module('myApp')
 						s.questArray = dataFromServer.data.originalText.split(", ")
 						console.log('the quest array object is ' + s.questArray)
 						s.answerArray = dataFromServer.data.translatedText.split(", ")
-						// s.reveal[0] = true;
 						s.counter = 0
 						s.mistakes = 0
 
-						// s.question = s.questArray[counter]
-						// s.answer = s.answerArray[counter]
 
 						//find out if the answer is correct
 							s.quizAnswer = function(userAnswer){
@@ -88,7 +85,7 @@ angular.module('myApp')
 								}
 							}
 					})
-					}
+				}
 
 			
 
