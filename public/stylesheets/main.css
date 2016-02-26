@@ -42,3 +42,14 @@ nav a {
 	height: 300px;
 	width: 100%;
 }
+
+.dynamic-quiz {
+	margin-left: 5%;
+	margin-top: 50px;
+}
+
+.correct-box {
+	float: right;
+}
+
+

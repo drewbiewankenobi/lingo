@@ -26,30 +26,34 @@
 	<div class="quiz-image">
 		<img src="http://cdn1.techworld.com/cmsdata/slideshow/3631725/quiz_istock_nirodesign_thumb800.jpg">
 	</div>
-	<form ng-submit="quizSub(quiz)" class = 'col-xs-6'>
+	<form ng-submit="quizSub(quiz)" class = 'col-xs-3'>
 		<h3>What language would you like to study?</h3>
 		<br>
 		<input ng-model="quiz.language" type="text" placeholder="your language" class="form-control">
-        <input type="submit" class="btn btn-primary">
+        <input style = 'margin-top : 10px' type="submit" class="btn btn-primary">
     </form>
         <br>
         <br>
 
-	<div ng-show = "reveal[0]">
-		<form ng-submit="quizAnswer(userAnswer)">
-			<p>1. Translate the word {{question}}</p>
-			<input ng-model = "userAnswer" type = 'text'>
-			<input type = 'submit'>
-		</form>
+	<div class = 'row'>
+		<div class = 'col-xs-6 dynamic-quiz'>
+			<div style = 'margin-top : 10px' ng-repeat = 'word in questArray | limitTo : 1 + counter'>
+				<form ng-submit="quizAnswer(userAnswer)">
+					<p>1. Translate the word {{word}}</p>
+					<input ng-model = "userAnswer" type = 'text'>
+					<input type = 'submit'>
+				</form>
+				<div ng-show = "rightReveal($index)" class=" correct-box alert alert-success" role="alert">
+	  				<strong>Well Done!</strong>
+				</div>
+				<div ng-show = "wrongReveal($index)" class=" correct-box alert alert-danger" role="alert">
+	  				<strong>Wrong Answer!</strong>
+				</div>
+			</div>
+		</div>
 	</div>
 
-	<div ng-show = "reveal[1]">
-		<form ng-submit="quizAnswer(userAnswer)">
-			<p>1. Translate the word {{question}}</p>
-			<input ng-model = "userAnswer" type = 'text'>
-			<input type = 'submit'>
-		</form>
-	</div>
+	
 
 <!-- 			<p>2. Translate the word {{word}}:</p>
 			<input>

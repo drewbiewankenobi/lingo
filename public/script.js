@@ -5,14 +5,17 @@ angular.module('myApp')
 			var s = $scope
 			var h = $http
 
-			s.reveal = [false, false, false, false, false]
+			s.reveal = [false, false, false, false, false, false, false, false, false, false]
+			s.misArr = [false, false, false, false, false, false, false, false, false, false]
+			
+
 
 			// s.words = words.words
 
 			// s.selection = function(){
 
 				
-			// 	s.reveal = true
+
 			// 	var num = Math.floor(Math.random()* s.words.length)
 			// 	console.log(num)
 			// 	s.question1 = s.words[num]
@@ -43,23 +46,45 @@ angular.module('myApp')
 						
 						//declarations
 
-						var questArray = dataFromServer.data.originalText.split(", ")
-						var answerArray = dataFromServer.data.translatedText.split(", ")
-						s.reveal[0] = true;
-						var counter = 0
-						s.question = questArray[counter]
-						s.answer = answerArray[counter]
+						s.questArray = dataFromServer.data.originalText.split(", ")
+						console.log('the quest array object is ' + s.questArray)
+						s.answerArray = dataFromServer.data.translatedText.split(", ")
+						// s.reveal[0] = true;
+						s.counter = 0
+						s.mistakes = 0
+
+						// s.question = s.questArray[counter]
+						// s.answer = s.answerArray[counter]
 
 						//find out if the answer is correct
-							s.quizAnswer = function(answer){
-							console.log("User answer = " + answer)
-								if (answer === s.answer){
+							s.quizAnswer = function(userAnswer){
+
+							console.log("User answer = " + userAnswer)
+								if (userAnswer === s.answerArray[s.counter]){
+									console.log(s.answerArray[s.counter])
 									console.log("CORRECT SUH!")
-									counter += 1
-									s.reveal[counter] = true
+									s.reveal[s.counter] = true
+									console.log(s.reveal)
+									s.rightReveal = function($index){
+										console.log(s.reveal[s.counter])
+										return s.reveal[$index]
+									}
+									s.counter += 1
+									// s.reveal[s.counter] = true
 
 								} else {
 									console.log("NO! DID YOU EVEN STUDY!?")
+									console.log(s.answerArray[s.counter])
+									s.misArr[s.counter] = true
+									s.wrongReveal = function($index){
+										console.log(s.misArr[s.counter])
+										return s.misArr[$index]
+									}
+									s.counter += 1
+									s.mistakes += 1
+										if (s.mistakes >=3){
+											window.location.href="/quiz.html"
+										}
 								}
 							}
 					})
