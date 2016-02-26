@@ -4,9 +4,10 @@ angular.module('myApp')
 	.controller('lingoTroller', ['$scope', '$http', function($scope, $http){
 			var s = $scope
 			var h = $http
-
+			s.score = 0
 			s.reveal = [false, false, false, false, false, false, false, false, false, false]
 			s.misArr = [false, false, false, false, false, false, false, false, false, false]
+			s.quizEnd = false
 			
 
 
@@ -47,7 +48,7 @@ angular.module('myApp')
 						//declarations
 
 						s.questArray = dataFromServer.data.originalText.split(", ")
-						console.log('the quest array object is ' + s.questArray)
+						// console.log('the quest array object is ' + s.questArray)
 						s.answerArray = dataFromServer.data.translatedText.split(", ")
 						s.counter = 0
 						s.mistakes = 0
@@ -63,10 +64,14 @@ angular.module('myApp')
 									s.reveal[s.counter] = true
 									console.log(s.reveal)
 									s.rightReveal = function($index){
-										console.log(s.reveal[s.counter])
+										// console.log(s.reveal[s.counter])
 										return s.reveal[$index]
 									}
 									s.counter += 1
+									s.score +=1
+									if (s.counter === 10){
+										s.quizEnd = true
+									}
 									// s.reveal[s.counter] = true
 
 								} else {
@@ -74,7 +79,7 @@ angular.module('myApp')
 									console.log(s.answerArray[s.counter])
 									s.misArr[s.counter] = true
 									s.wrongReveal = function($index){
-										console.log(s.misArr[s.counter])
+										// console.log(s.misArr[s.counter])
 										return s.misArr[$index]
 									}
 									s.counter += 1

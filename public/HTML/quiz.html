@@ -34,45 +34,32 @@
     </form>
         <br>
         <br>
-
-	<div class = 'row'>
-		<div class = 'col-xs-6 dynamic-quiz'>
-			<div style = 'margin-top : 10px' ng-repeat = 'word in questArray | limitTo : 1 + counter'>
-				<form ng-submit="quizAnswer(userAnswer)">
-					<p>1. Translate the word {{word}}</p>
-					<input ng-model = "userAnswer" type = 'text'>
-					<input type = 'submit'>
-				</form>
-				<div ng-show = "rightReveal($index)" class=" correct-box alert alert-success" role="alert">
-	  				<strong>Well Done!</strong>
-				</div>
-				<div ng-show = "wrongReveal($index)" class=" correct-box alert alert-danger" role="alert">
-	  				<strong>Wrong Answer!</strong>
+   <div class="container">     
+		<div class = 'row'>
+			<div class = 'col-xs-6 dynamic-quiz'>
+				<div style = 'margin-top : 10px' ng-repeat = 'word in questArray | limitTo : 1 + counter'>
+					<form ng-submit="quizAnswer(userAnswer)">
+						<p>Translate the word {{word}}</p>
+						<input ng-model = "userAnswer" type = 'text'>
+						<input type = 'submit'>
+					</form>
+					<div ng-show = "rightReveal($index)" class=" correct-box alert alert-success" role="alert">
+		  				<strong>Well Done!</strong>
+					</div>
+					<div ng-show = "wrongReveal($index)" class=" correct-box alert alert-danger" role="alert">
+		  				<strong>WRONG!  The correct word is: {{answerArray[$index]}}</strong>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<div>
+		<div ng-show="quizEnd">
+			<h3>Great Work!</h3>
+			<p> Here are your results:</p>
+			<p>You got {{score}} /10 correct.</p>
+	</div>
 
-	
-
-<!-- 			<p>2. Translate the word {{word}}:</p>
-			<input>
-			<p>3. Translate the word {{word}}:</p>
-			<input>
-			<p>4. Translate the word {{word}}:</p>
-			<input>
-			<p>5. Translate the word {{word}}:</p>
-			<input>
-			<p>6. Translate the word {{word}}:</p>
-			<input>
-			<p>7. Translate the word {{word}}:</p>
-			<input>
-			<p>8. Translate the word {{word}}:</p>
-			<input>
-			<p>9. Translate the word {{word}}:</p>
-			<input>
-			<p>10. Translate the word {{word}}:</p>
-			<input> -->
 
 </body>
 </html>

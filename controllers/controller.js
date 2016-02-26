@@ -96,9 +96,29 @@ var languageCodes = {
 
 var ourQuizFunction = function(req, res){
 	var langSel = req.body.language
-	console.log("QuizFunction is firing --> " + req.body.language)
-	var y = wordsSchema.ourWords.words.join(', ')
+	console.log("QuizFunction is firing language --> " + req.body.language)
+	var wordBox = []
+
+	//get 10 random words, then stringify for the translate
+
+	console.log("array length --> " + wordsSchema.ourWords.words.length)
+
+	for (i=0; i<10; i++){
+			var	myMath = Math.floor(Math.random()*wordsSchema.ourWords.words.length)
+			console.log(myMath)
+			wordBox.push(wordsSchema.ourWords.words[myMath])
+			
+			wordsSchema.ourWords.words.splice(myMath, 1)
+		
+			}
+		
+	
+	var y = wordBox.join(', ')
+	
 	console.log("Variable 'y' is --> " + y)
+
+	//send up word group in 'translation' object
+
 	googleTranslate.translate(y, "en", req.body.language, function(err, translation){
 		res.send(translation)
 	})
@@ -116,9 +136,7 @@ var ourQuizFunction = function(req, res){
 
 }
 
-var ourQuizAnswer = function(req, res){
 
-}
 
 
 module.exports = {
