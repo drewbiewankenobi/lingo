@@ -33,6 +33,7 @@ nav a {
 
 .quizBacker {
 	background-color: #FFF8DC;
+	height: 3000px;
 }
 
 .quiz-image {
@@ -50,6 +51,12 @@ nav a {
 
 .correct-box {
 	float: right;
+	margin-top: -23px;
+	padding: 0    
+	margin-bottom: 0px; 
+    border: 1px solid transparent; 
+    border-radius: 4px; 
+}
 }
 
 
