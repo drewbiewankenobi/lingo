@@ -19,36 +19,35 @@
 		<div class = 'nav-ele'>
         	<a href="/quiz.html">Quiz</a>
         </div>
-        <div class = 'nav-ele'>
-        	<a href="/progress.html">Progress</a>
-        </div>
     </nav>
+    <div class="container">     
 	<div class="quiz-image">
 		<img src="http://cdn1.techworld.com/cmsdata/slideshow/3631725/quiz_istock_nirodesign_thumb800.jpg">
 	</div>
-	<form ng-submit="quizSub(quiz)" class = 'col-xs-3'>
-		<h3>What language would you like to study?</h3>
-		<br>
-		<input ng-model="quiz.language" type="text" placeholder="your language" class="form-control">
-        <input style = 'margin-top : 10px' type="submit" class="btn btn-primary">
-    </form>
+	<div class = "row">
+		<form ng-submit="quizSub(quiz)" class = 'col-xs-9'>
+			<h3>What language would you like to study?</h3>
+			<br>
+			<input ng-model="quiz.language" type="text" placeholder="your language" class="form-control">
+	        <input style = 'margin-top : 10px' type="submit" class="btn btn-primary">
+	    </form>
+    </div>
         <br>
-        <br>
-   <div class="container">     
-		<div class = 'row'>
-			<div class = 'col-xs-6 dynamic-quiz'>
-				<div style = 'margin-top : 10px' ng-repeat = 'word in questArray | limitTo : 1 + counter track by $index'>
-					<form ng-submit="quizAnswer(userAnswer)">
-						<p>Translate the word {{word}}</p>
-						<input ng-model = "userAnswer" type = 'text'>
-						<input type = 'submit'>
-					</form>
-					<div ng-show = "rightReveal($index)" class=" correct-box alert alert-success" role="alert">
-		  				<strong>Well Done!</strong>
-					</div>
-					<div ng-show = "wrongReveal($index)" class=" correct-box alert alert-danger" role="alert">
-		  				<strong>WRONG!  The correct word is: {{answerArray[$index]}}</strong>
-					</div>
+   	<div class = 'row'>
+		<div class = 'col-xs-12 dynamic-quiz'>
+		<div class = 'col-xs-6' style = 'margin-top : 10px' ng-repeat = 'word in questArray | limitTo : 1 + counter track by $index'>
+			<form ng-submit="quizAnswer(userAnswer)">
+				<p>Translate the word {{word}}</p>
+				<input ng-model = "userAnswer" type = 'text'>
+				<input type = 'submit'>
+				</form>
+				<div ng-show = "rightReveal($index)" class="col-xs-6 correct-box alert alert-success" role="alert">
+		  			<strong>Well Done!</strong>
+				</div>
+				<div ng-show = "wrongReveal($index)" class="col-xs-6 correct-box alert alert-danger" role="alert">
+		  			<strong>WRONG!  The correct word is: '{{answerArray[$index]}}'</strong>
+				</div>
+
 				</div>
 			</div>
 		</div>

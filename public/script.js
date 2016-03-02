@@ -75,7 +75,7 @@ angular.module('myApp')
 									// s.reveal[s.counter] = true
 
 								} else {
-									console.log("NO! DID YOU EVEN STUDY!?")
+									console.log("WRONG SUH!")
 									console.log(s.answerArray[s.counter])
 									s.misArr[s.counter] = true
 									s.wrongReveal = function($index){
