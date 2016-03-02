@@ -98,17 +98,17 @@ var ourQuizFunction = function(req, res){
 	var langSel = req.body.language
 	console.log("QuizFunction is firing language --> " + req.body.language)
 	var wordBox = []
-
+	var wordList = wordsSchema.ourWords.words.slice()
 	//get 10 random words, then stringify for the translate
 
 	console.log("array length --> " + wordsSchema.ourWords.words.length)
 
 	for (i=0; i<10; i++){
-			var	myMath = Math.floor(Math.random()*wordsSchema.ourWords.words.length)
+			var	myMath = Math.floor(Math.random()*wordList.length)
 			console.log(myMath)
-			wordBox.push(wordsSchema.ourWords.words[myMath])
+			wordBox.push(wordList[myMath])
 			
-			wordsSchema.ourWords.words.splice(myMath, 1)
+			wordList.splice(myMath, 1)
 		
 			}
 		

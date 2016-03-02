@@ -37,6 +37,7 @@
     </div>
         <br>
         <br>
+<<<<<<< HEAD
 	<div class = 'row'>
 		<div class = 'col-xs-9 dynamic-quiz'>
 			<div style = 'margin-top : 10px' ng-repeat = 'word in questArray | limitTo : 1 + counter'>
@@ -51,6 +52,23 @@
 				<div ng-show = "wrongReveal($index)" class="correct-box alert alert-danger" role="alert">
 	  				<strong>WRONG!  The correct word is: {{answerArray[$index]}}</strong>
 				</div>
+=======
+   <div class="container">     
+		<div class = 'row'>
+			<div class = 'col-xs-6 dynamic-quiz'>
+				<div style = 'margin-top : 10px' ng-repeat = 'word in questArray | limitTo : 1 + counter track by $index'>
+					<form ng-submit="quizAnswer(userAnswer)">
+						<p>Translate the word {{word}}</p>
+						<input ng-model = "userAnswer" type = 'text'>
+						<input type = 'submit'>
+					</form>
+					<div ng-show = "rightReveal($index)" class=" correct-box alert alert-success" role="alert">
+		  				<strong>Well Done!</strong>
+					</div>
+					<div ng-show = "wrongReveal($index)" class=" correct-box alert alert-danger" role="alert">
+		  				<strong>WRONG!  The correct word is: {{answerArray[$index]}}</strong>
+					</div>
+>>>>>>> 9c2dfa5d67c3f360fe2f336ebf184a7772932766
 				</div>
 			</div>
 		</div>
